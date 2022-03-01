@@ -90,26 +90,35 @@ namespace newUserMaster
                 conn.Open();
                 string sql = "";
                 //email first
-                sql = "SELECT email_address FROM dbo.[user] WHERE email_address = '" + txtWorkEmail.Text + "'";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                if (txtWorkEmail.Text == "@designandsupply.co.uk") //allow you to add no email
                 {
-                    string temp = Convert.ToString(cmd.ExecuteScalar());
-                    if (temp != "")
-                    {
-                        MessageBox.Show("The work email you have entered is already in use!", "debugoh", MessageBoxButtons.OK);
+                    DialogResult result = MessageBox.Show("You are about to create this user with no work email, are you sure?", "What do you mean?", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
                         return;
-                    }
-
                 }
-                //the other email
-                sql = "SELECT email FROM dbo.[user] WHERE email = '" + txtWorkEmail.Text + "'";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                else
                 {
-                    string temp = Convert.ToString(cmd.ExecuteScalar());
-                    if (temp != "")
+                    sql = "SELECT email_address FROM dbo.[user] WHERE email_address = '" + txtWorkEmail.Text + "'";
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        MessageBox.Show("The work email you have entered is already in use!", "debuggy", MessageBoxButtons.OK);
-                        return;
+                        string temp = Convert.ToString(cmd.ExecuteScalar());
+                        if (temp != "")
+                        {
+                            MessageBox.Show("The work email you have entered is already in use!", "debugoh", MessageBoxButtons.OK);
+                            return;
+                        }
+
+                    }
+                    //the other email
+                    sql = "SELECT email FROM dbo.[user] WHERE email = '" + txtWorkEmail.Text + "'";
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        string temp = Convert.ToString(cmd.ExecuteScalar());
+                        if (temp != "")
+                        {
+                            MessageBox.Show("The work email you have entered is already in use!", "debuggy", MessageBoxButtons.OK);
+                            return;
+                        }
                     }
                 }
                 //username
