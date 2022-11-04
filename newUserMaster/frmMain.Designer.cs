@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.chkCurrent = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnEndUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,11 +131,23 @@
             this.label4.Text = "Current";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnEndUser
+            // 
+            this.btnEndUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEndUser.Location = new System.Drawing.Point(466, 16);
+            this.btnEndUser.Name = "btnEndUser";
+            this.btnEndUser.Size = new System.Drawing.Size(75, 23);
+            this.btnEndUser.TabIndex = 8;
+            this.btnEndUser.Text = "END User";
+            this.btnEndUser.UseVisualStyleBackColor = true;
+            this.btnEndUser.Click += new System.EventHandler(this.btnEndUser_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 426);
+            this.Controls.Add(this.btnEndUser);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.chkCurrent);
             this.Controls.Add(this.label3);
@@ -162,6 +175,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chkCurrent;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnEndUser;
     }
 }
 

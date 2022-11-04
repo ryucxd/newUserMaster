@@ -82,10 +82,32 @@ namespace newUserMaster
                 return;
             frmCopyUser frm = new frmCopyUser(id);
             frm.ShowDialog();
+            apply_filter();
         }
 
         private void chkCurrent_CheckedChanged(object sender, EventArgs e)
         {
+            apply_filter();
+        }
+
+        private void btnEndUser_Click(object sender, EventArgs e)
+        {
+
+            int id = 0;
+            string staff = "";
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.DefaultCellStyle.BackColor == Color.CornflowerBlue)
+                {
+                    id = Convert.ToInt32(row.Cells[0].Value);
+                    staff = row.Cells[1].Value.ToString();
+                }
+            }
+            if (id == 0)
+                return;
+
+            frmEndUser frm = new frmEndUser(id,staff);
+            frm.ShowDialog();
             apply_filter();
         }
     }

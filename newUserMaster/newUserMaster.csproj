@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\designsvr1\apps\Design and Supply CSharp\MiniApps\NewUserMaster\</InstallUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -83,6 +83,12 @@
     <Compile Include="frmCopyUser.Designer.cs">
       <DependentUpon>frmCopyUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEndUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEndUser.Designer.cs">
+      <DependentUpon>frmEndUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCopyUser.resx">
       <DependentUpon>frmCopyUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEndUser.resx">
+      <DependentUpon>frmEndUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
