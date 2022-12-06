@@ -43,12 +43,19 @@ namespace newUserMaster
 
                     sql = "DELETE s from dbo.power_plan_staff  s " +
                         "left join dbo.power_plan_date d on s.date_id = d.id " +
-                        "where staff_id = " + staff_id.ToString() + " and date_plan >= '" + dteEndDate.Value.ToString("yyyyMMdd") + "' ";    
+                        "where staff_id = " + staff_id.ToString() + " and date_plan > '" + dteEndDate.Value.ToString("yyyyMMdd") + "' ";    
                     
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                         cmd.ExecuteNonQuery();
 
-                    conn.Close();
+                    //also remove any extra data they have in dbo.absent
+                    sql = "DELETE from dbo.absent_holidays where staff_id = " + staff_id.ToString() + " AND date_absent > '" + dteEndDate.Value.ToString("yyyyMMdd") + "'";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                        cmd.ExecuteNonQuery();
+
+
+                        conn.Close();
                     this.Close();
                 }
             }
