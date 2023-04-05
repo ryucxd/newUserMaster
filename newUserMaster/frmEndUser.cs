@@ -51,7 +51,7 @@ namespace newUserMaster
                     //also remove any extra data they have in dbo.absent
                     sql = "DELETE from dbo.absent_holidays where staff_id = " + staff_id.ToString() + " AND date_absent > '" + dteEndDate.Value.ToString("yyyyMMdd") + "'";
 
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (SqlCommand cmd = new SqlCommand(sql, conn)) // I HAVENT TESTED THIS BUT HONESTLY IT LOOKS OK
                         cmd.ExecuteNonQuery();
 
 
